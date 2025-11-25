@@ -1,9 +1,9 @@
-## Simple Outline and Decisionmaking ##
+### Simple Outline on Decisionmaking ###
 I left a large amount of the boiler plate code up to annotations and
 packages/frameworks (JpaRepository, Lombok) since expansion and business
 logic can be implemented later.
 
-The only heavy decision I felt worth making was identifying on SSN when
+One of the major decision I felt worth making was identifying on SSN when
 registering users. I considered the prospect of identifying
 them based on SSN and Nationality but from a programming
 perspective that's a simple and-condition to slot in and I would rather just
@@ -21,8 +21,17 @@ I also assumed it could allow negative statuses (FRAUD, DENIED, UNDER REVIEW, et
 if ever necessary, but for simplicity of current requirements I didn't want to
 overcomplicate this functionality.
 
-## Technologies Used And Justifications ##
+I wanted to add a lot of the required fields as required in the actual User Object
+because that tends to provide the most cleanliness for future operations. Namely
+use cases where you have multiple forms of User-generation (File imports, mobile app,
+web app, etc.) and would leave less clutter in the actual generation process.
+
+### Choice in Technologies Used And Justifications ###
 Lombok - Simplifaction for Spring BOOT Boilerplate options (getters/setters)
-PostgreSQL - Familiarity and simple running locally
-Docker - Similar to above, plays well with Postgre.
-Junit/Jupiter - Familiarity and simplicity.
+PostgreSQL - Familiarity and simple for running locally. Allows me UI viewing with pgAdmin.
+Docker - Similar to above, and plays well with Postgre. Simple to spin up.
+Junit/Jupiter - Familiarity and simplicity, as well as integrating well with annotations.
+
+
+http://localhost:8080/swagger-ui/index.html#/
+Should be where the OpenAPI will live unless properties change.
