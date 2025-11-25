@@ -1,0 +1,28 @@
+## Simple Outline and Decisionmaking ##
+I left a large amount of the boiler plate code up to annotations and
+packages/frameworks (JpaRepository, Lombok) since expansion and business
+logic can be implemented later.
+
+The only heavy decision I felt worth making was identifying on SSN when
+registering users. I considered the prospect of identifying
+them based on SSN and Nationality but from a programming
+perspective that's a simple and-condition to slot in and I would rather just
+check with legal/POs/PMs if any operational countries can have overlapping
+BSNs/SSNs.
+
+The other decision I felt worth implementing was the 'onboarding'
+flag to allow us to have multiple channels or status' for users signing up.
+I figure some users can be automatically verified, while others may require
+human verification (I believe this is the case when signing up for a bank
+with a domestic ID versus foreign) so that would allow different channels
+to all trigger the flag and send the email.
+
+I also assumed it could allow negative statuses (FRAUD, DENIED, UNDER REVIEW, etc.)
+if ever necessary, but for simplicity of current requirements I didn't want to
+overcomplicate this functionality.
+
+## Technologies Used And Justifications ##
+Lombok - Simplifaction for Spring BOOT Boilerplate options (getters/setters)
+PostgreSQL - Familiarity and simple running locally
+Docker - Similar to above, plays well with Postgre.
+Junit/Jupiter - Familiarity and simplicity.
