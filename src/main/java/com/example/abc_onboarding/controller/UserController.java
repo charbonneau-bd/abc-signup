@@ -77,7 +77,6 @@ public class UserController {
             @PathVariable Long id,
             @RequestBody UpdateUserDTO dto) {
         try {
-            dto.setId(id);
             User updated = userService.updateUser(dto);
             return ResponseEntity.ok(updated);
         } catch (ResponseStatusException ex) {
